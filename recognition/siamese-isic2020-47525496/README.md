@@ -95,20 +95,13 @@ Threshold τ chosen on **VAL** (Youden’s J) and reused on **TEST**.
 
 | Split |  Acc  |  AUC  |  F1   | Sens | Spec |  Thr  |
 |-----:|:-----:|:-----:|:-----:|:----:|:----:|:-----:|
-| Val  | 0.832 | 0.812 | 0.139 | 0.728| 0.834| 0.496 |
-| Test | 0.822 | 0.749 | 0.105 | 0.571| 0.827| 0.496 |
+| Val  | 0.8098 | 0.9009 | 0.1417 | 0.848 | 0.809 | 0.134 |
+| Test | 0.8054 | 0.8642 | 0.1265 | 0.769 | 0.806 | 0.134 |
 
-**Confusion (TEST):** TP = 52, FP = 844, FN = 39, TN = 4034.
+**Confusion (VAL):** TP = 78, FP = 931, FN = 14, TN = 3946  
+**Confusion (TEST):** TP = 70, FP = 946, FN = 21, TN = 3932
 
-Notes: accuracy meets the ≥0.80 target; F1 is low due to class imbalance (false positives). Adjusting τ trades sensitivity and specificity.
-
-### Pair-level (Siamese head)
-| Split |  AUC  |  Acc  |  F1   | Sens | Spec |  Thr  |
-|-----:|:-----:|:-----:|:-----:|:----:|:----:|:-----:|
-| Val  | 0.779 | 0.715 | 0.731 | 0.757| 0.671| 0.660 |
-| Test | 0.763 | 0.698 | 0.715 | 0.746| 0.649| 0.660 |
-
-(Reported for completeness; the image-level numbers above are the main target.)
+Notes: The ≥0.80 accuracy target is met on **TEST**. F1 remains low due to heavy class imbalance; adjusting τ trades sensitivity vs specificity.
 
 ## Repository layout
 - `modules.py` — model/components  
