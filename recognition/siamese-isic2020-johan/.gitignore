@@ -1,0 +1,7 @@
+# don't commit artefacts or datasets
+*.pth
+*.pt
+*.onnx
+runs/
+outputs/
+data/
