@@ -5,3 +5,9 @@
 runs/
 outputs/
 data/
+
+*.thr.txt
+*.proto.thr.txt
+*.preds.csv
+training_log.csv
+training_curves.png
