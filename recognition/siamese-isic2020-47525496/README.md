@@ -68,6 +68,13 @@ python recognition\siamese-isic2020-47525496\driver.py `
 python recognition\siamese-isic2020-47525496\driver.py `
   --root "D:\Test Data" `
   --ckpt "D:\Test Data\runs\siamese\best.pth"
+
+# evaluate the pair head directly (optional)
+python recognition\siamese-isic2020-47525496\driver.py `
+  --root "D:\Test Data" `
+  --ckpt "D:\Test Data\runs\siamese\best.pth" `
+  --mode pairs `
+  --find_threshold
 ```
 
 ## Dependencies
