@@ -76,3 +76,29 @@ pip install torch torchvision pandas numpy scikit-learn pillow tqdm matplotlib
 - `README.md` – this file
 
 *This layout and commit practice align with the assessment checklist and “Recognition Problem” file requirements.*
+---
+
+## Results (image-level)
+
+**Setup:** K=256 supports/class from TRAIN, img_size=256, L2-normalised embeddings,  
+threshold t chosen on **VAL** by Youden�s J and reused on **TEST**.
+
+| Split | Acc   | AUC   | F1    | Sens | Spec | Thr   |
+|------:|:-----:|:-----:|:-----:|:----:|:----:|:-----:|
+| Val   | 0.832 | 0.812 | 0.139 | 0.728| 0.834| 0.496 |
+| Test  | 0.822 | 0.749 | 0.105 | 0.571| 0.827 | 0.496 |
+
+**Confusion (TEST):** TP=52, FP=844, FN=39, TN=4034
+
+### Test Driver (marker-friendly)
+
+Pick t on **VAL** and then evaluate **TEST**:
+
+`powershell
+python recognition\siamese-isic2020-johan\driver.py 
+  --root "D:\Test Data" 
+  --ckpt "D:\Test Data\runs\siamese\best.pth" 
+  --find_threshold
+python recognition\siamese-isic2020-johan\driver.py 
+  --root "D:\Test Data" 
+  --ckpt "D:\Test Data\runs\siamese\best.pth"
