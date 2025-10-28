@@ -25,31 +25,31 @@ ISIC 2020 dermoscopic images are highly imbalanced and visually subtle. Instead 
 
 ### 1) Make splits
 ```powershell
-python recognition/siamese-isic2020-johan/train.py split --root "D:\Test Data"
+python recognition/siamese-isic2020-47525496/train.py split --root "D:\Test Data"
 ```
 
 ### 2) Train (pair-level)
 ```powershell
-python recognition/siamese-isic2020-johan/train.py train --root "D:\Test Data" `
+python recognition/siamese-isic2020-47525496/train.py train --root "D:\Test Data" `
   --epochs 15 --batch_size 64 --lr 3e-4 --img_size 224 --num_workers 4
 ```
 
 ### 3) Evaluate pair-level (AUC/ACC/F1 + optional threshold search)
 ```powershell
-python recognition/siamese-isic2020-johan/predict.py eval-pairs --root "D:\Test Data" `
+python recognition/siamese-isic2020-47525496/predict.py eval-pairs --root "D:\Test Data" `
   --ckpt "D:\Test Data\runs\siamese\best.pth" --split val --find_best_threshold
 
-python recognition/siamese-isic2020-johan/predict.py eval-pairs --root "D:\Test Data" `
+python recognition/siamese-isic2020-47525496/predict.py eval-pairs --root "D:\Test Data" `
   --ckpt "D:\Test Data\runs\siamese\best.pth" --split test --use_saved_threshold
 ```
 
 ### 4) (Optional) Prototype image-level classifier
 ```powershell
-python recognition/siamese-isic2020-johan/predict.py proto --root "D:\Test Data" `
+python recognition/siamese-isic2020-47525496/predict.py proto --root "D:\Test Data" `
   --ckpt "D:\Test Data\runs\siamese\best.pth" --split val `
   --support_per_class 256 --img_size 256 --l2norm --find_best_threshold
 
-python recognition/siamese-isic2020-johan/predict.py proto --root "D:\Test Data" `
+python recognition/siamese-isic2020-47525496/predict.py proto --root "D:\Test Data" `
   --ckpt "D:\Test Data\runs\siamese\best.pth" --split test `
   --support_per_class 256 --img_size 256 --l2norm --use_saved_threshold --save_preds
 ```
@@ -95,10 +95,10 @@ threshold t chosen on **VAL** by Youden’s J and reused on **TEST**.
 Pick t on **VAL** and then evaluate **TEST**:
 
 `powershell
-python recognition\siamese-isic2020-johan\driver.py 
+python recognition\siamese-isic2020-47525496\driver.py 
   --root "D:\Test Data" 
   --ckpt "D:\Test Data\runs\siamese\best.pth" 
   --find_threshold
-python recognition\siamese-isic2020-johan\driver.py 
+python recognition\siamese-isic2020-47525496\driver.py 
   --root "D:\Test Data" 
   --ckpt "D:\Test Data\runs\siamese\best.pth"
