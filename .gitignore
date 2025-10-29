@@ -1,2 +1,8 @@
 
 *.zip
+
+# Python cache/junk
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
